@@ -1,10 +1,10 @@
  > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
  > Prompt text is any lines beginning with "\<"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# \<Project title\>
+# Algebraic Groups
  > Your author list below should include links to all members GitHub and should begin with a "\<" (remove existing author).
  
- > Authors: \<[Ayush Nabar](https://github.com/ayushnabar), [Josiah Wallis](https://github.com/cheesejacker)\>
+ > Authors: \<[Ayush Nabar](https://github.com/ayushnabar), [Angela Su](https://github.com/Angela-Su), [Josiah Wallis](https://github.com/cheesejacker)\>
  
  > You will be forming a group of **THREE** students and work on an interesting project that you will propose yourself (in this `README.md` document). You can pick any project that you'd like, but it needs ot implement three design patterns. Each of the members in a group is expected to work on at least one design pattern and its test cases. You can, of course, help each other, but it needs to be clear who will be responsible for which pattern and for which general project features.
  
@@ -19,16 +19,19 @@
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include
  > * Why is it important or interesting to you?
-    This project interests our group because it provides a solution for users who need a way to retrieve information from a website and store it in a database. There are many cases when students or employers need information from a website, and our program serves to provide a solution to this problem. 
+ >   * This project is interesting to us because it may provide a workable algebraic group verifier for mathematicians who use C++. There are libraries and tools in python that many people flock to, but for those whose native language is C++, this handy class may prove useful for checking if some set is in fact an algebraic group. Additionally, this project is interesting because it may prove useful in a current widescale SageTex program where mathematicians hope to make an AI or program that can verify mathematical proofs.
+ 
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
+ >   * C++
     
  > * What will be the input/output of your project?
+ >   * The input of our project will be a numerical set of data, specifically within the set data structure. A string or set of operations will be entered, as the console should request. Additionally, further inputs or preferences will be prompted for the user of this program that are specific to the algebraic group they are making. The output of our program will be a series of output messages verifying the object that has been created is in fact an algebraic group, and upon the user's request will output additional information such as the group's cardinality, existence of inverses, existence of identity elements, and whether or not the operation bound to the group is associative.
  > * What are the three design patterns you will be using. For each design pattern you must:
  >   * Explain in 3 - 5 sentences why you picked this pattern and what feature you will implement with it
-        We plan to use a visitor pattern as a sorting mechanism for our data. From our webscraper, we plan to store and use data in our database to accomplish the user's needs. For example, if the user web scrapes from a university website, our program will help sort the data by alphabetical order. 
+ >   * Factory: We'll use this pattern to select which operation our group will be equipped with. Given an operation tree, this method will also help form a custom operation that our group will be equipped with. We will try to have the factory parse a string of operations, but if this doesn't run smoothly, the input will be an operation tree or a single operation that's been previously defined like multiplication or addition.
+ >   * Strategy: The strategy pattern will allow us to store and dynamically use algorithms that verify our set is an algebraic group. It will contain 3-5 standard algorithms or methods that check the primary requirements for a set to be considered a group. Additionally, there will be smaller methods that can find the identity element and inverse element with respect to a given input, if there are such elements.
+ >   * Memento: This pattern will be used for two purposes. To our understanding of this pattern, we'll use it to save individual states of our set. We'll save the state of the set then we'll add an element and perform various methods or functions to verify our set still holds certain properties, or pass certain tests. Also, we'll use this pattern to save the state of the set when we know it is verifiably a group. This is useful because we may add many elements to the set at a time, and if we don't know when the set stopped being an algebraic group, we can roll it back to its previous state.
 
-        Additionally, we plan to use the factory method in our database. The factory method entails that where instead of creating objects, we create child classes that implement the methods we specify. For example, in our database, we have multiple subclasses for each piece of data added. It uses the idea of abstract classes and methods to beable to implement different forms of the same methods. 
  > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
 
  > ## Phase II
