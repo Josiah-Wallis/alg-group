@@ -19,11 +19,16 @@
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include
  > * Why is it important or interesting to you?
+    This project interests our group because it provides a solution for users who need a way to retrieve information from a website and store it in a database. There are many cases when students or employers need information from a website, and our program serves to provide a solution to this problem. 
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >   * [toolname](link) - Short description
+    
  > * What will be the input/output of your project?
  > * What are the three design patterns you will be using. For each design pattern you must:
  >   * Explain in 3 - 5 sentences why you picked this pattern and what feature you will implement with it
+        We plan to use a visitor pattern as a sorting mechanism for our data. From our webscraper, we plan to store and use data in our database to accomplish the user's needs. For example, if the user web scrapes from a university website, our program will help sort the data by alphabetical order. 
+
+        Additionally, we plan to use the factory method in our database. The factory method entails that where instead of creating objects, we create child classes that implement the methods we specify. For example, in our database, we have multiple subclasses for each piece of data added. It uses the idea of abstract classes and methods to beable to implement different forms of the same methods. 
  > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
 
  > ## Phase II
