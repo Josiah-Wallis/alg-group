@@ -49,7 +49,7 @@
  > * Abstract Factory Method: Our project uses a factory pattern to select and decide what operation is being used. We can have the four basic operations or a custom operation given by the user. Our operation class will be able to create abstract versions without knowing the concrete implementation of parse(), which will parse through a given string and help form a custom operation given by a user. The implementation of parse will account for any operation the user inputs.
 
  ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/master/classDiagram.jpg)
- > * Strategy Method
+ > * Strategy Method: Within the project, we want to be able to have a function verify() and function setGroup() both of which are in the Verifier Class. The verify() checks if the input fits the requirements for a group, based on definition. Then the setGroup() function is able to dynamically allocate the group which makes it accessible in the subclasses: Associative, Communitive, Inverse, Closue, Identity, and others depending on the user needs. All subclasses should also include verify().
  ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/master/Strategy.jpg)
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
