@@ -51,6 +51,9 @@
  ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/master/classDiagram.jpg)
  > * Strategy Method: Within the project, we want to be able to have a function verify() and function setGroup() both of which are in the Verifier Class. The verify() checks if the input fits the requirements for a group, based on definition. Then the setGroup() function is able to dynamically allocate the group which makes it accessible in the subclasses: Associative, Communitive, Inverse, Closue, Identity, and others depending on the user needs. All subclasses should also include verify().
  ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/master/Strategy.jpg)
+
+ > * Memento Method: For this project, we want to be able to save the state of our algebraic group when we know it has been verified to be, in fact, an algebraic group. This means it has passed all of the strategy verifications we've implemented. Every time a group has been verified, a version of itself will be saved as a memento. The GroupBank class will act as our originator, instantiating and being the user's proxy to access the memento. The GoodGroup class will be our primary memento, the class that holds one given state of a group at a time. The caretaker will be a set of functions or methods that allow us to interact with the memento itself without changing the inner workings or state of the object.
+ ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/master/memento.PNG)
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
  > * Before the meeting you should perform a sprint plan like you did in Phase II
