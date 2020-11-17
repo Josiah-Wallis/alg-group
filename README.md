@@ -49,7 +49,7 @@
  > * Factory Method
  ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/AyushClassDiagram/classDiagram.jpg)
  > * Strategy Method
- ! [alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/AngelaStrategy/Strategy.jpg)
+ ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/AngelaStrategy/Strategy.jpg)
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
  > * Before the meeting you should perform a sprint plan like you did in Phase II
