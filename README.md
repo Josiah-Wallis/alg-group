@@ -46,7 +46,8 @@
  >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA
 ## Class Diagram
  > Include a class diagram(s) for each design pattern and a description of the diagram(s). This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). 
- > * Factory Method
+ > * Abstract Factory Method: Our project uses a factory pattern to select what operation is being used. We can have the four basic operations or a custom operation given by the user. In the future, we can add to this diagram by counting for more operations. Our operation class will be able to create abstract versions without knowing the concrete implementation of checkOperation(), which will parse through a given string and help form a custom operation given by a user. 
+ 
  ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/AyushClassDiagram/classDiagram.jpg)
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
