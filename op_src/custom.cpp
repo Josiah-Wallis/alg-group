@@ -1,6 +1,6 @@
-#include "../op_header"
+#include "../op_header/custom.hpp"
 
-virtual double Custom::evaluate() {
+double Custom::evaluate() {
 	/* TODO */
 }
 
