@@ -7,6 +7,7 @@ SET(CMAKE_CXX_STANDARD 11)
 ADD_EXECUTABLE(test
 	tests/op_tests.cpp
 	op_src/custom.cpp
+	factory_src/op_factory.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)
