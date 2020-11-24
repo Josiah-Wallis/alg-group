@@ -99,23 +99,23 @@ Base* OpFactory::parse(Base* l, Base* r, string operation, int custom){
 
 	}
 	else{
-		else if(operation == "+"){
-			return new Add(1, r);
+		if(operation == "+"){
+			return new Add(l, r);
 		}
 		else if(operation == "-"){
-			return new Sub(1, r);
+			return new Sub(l, r);
 		}
 		else if(operation == "*"){
-			return new Mult(1, r);
+			return new Mult(l, r);
 		}
 		else if(operation == "/"){
-			return new Div(1, r);
+			return new Div(l, r);
 		}
 		else if(operation == "**"){
-			return new Pow(1, r);
+			return new Pow(l, r);
 		}
 		else if(isdigit(operation[0])){	/* need to double check */
-			return new(operation[0] -48);
+			return new Op(operation[0] - 48);
 		}
 		else{
 			return 0;
