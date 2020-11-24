@@ -3,6 +3,6 @@ CMakeFiles/
 Makefile
 cmake_install.cmake
 lib/
-factory_src/.op_factory.cpp.swp
-factory_tests
 op_tests
+factory_tests
+

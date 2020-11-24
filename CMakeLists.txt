@@ -15,7 +15,6 @@ ADD_EXECUTABLE(factory_tests
 	factory_src/op_factory.cpp
 )
 
-
 TARGET_LINK_LIBRARIES(op_tests gtest)
 TARGET_LINK_LIBRARIES(factory_tests gtest)
 TARGET_COMPILE_DEFINITIONS(op_tests PRIVATE gtest_disable_pthreads=ON)
