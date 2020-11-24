@@ -114,7 +114,7 @@ Base* OpFactory::parse(Base* l, Base* r, string operation, int custom){
 		else if(operation == "**"){
 			return new Pow(1, r);
 		}
-		else if(isDigit(operation[0])){	/* need to double check */
+		else if(isdigit(operation[0])){	/* need to double check */
 			return new(operation[0] -48);
 		}
 		else{
