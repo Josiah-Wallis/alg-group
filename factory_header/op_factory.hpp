@@ -8,11 +8,11 @@
 #include "../op_header/base.hpp"
 #include "../op_header/custom.hpp"
 #include "../op_header/op.hpp"
-#include "../factory_header/abstract_op_factory.hpp"
+#include "abstract_op_factory.hpp"
 
 using namespace std;
 
-class OpFactory: public AbstractFactory{
+class OpFactory : public AbstractFactory{
 	public:
 		OpFactory() { };
 		virtual Base* parse(Base* left, Base* right, string operation, int custom = 0);
