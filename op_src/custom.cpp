@@ -2,7 +2,7 @@
 
 void Custom::set_operation(string op_string){
 	OpFactory* factory = new OpFactory();
-	op = factory->parse(1, l, r, op_string);
+	op = factory->parse(l, r, op_string, 1);
 		
 }
 

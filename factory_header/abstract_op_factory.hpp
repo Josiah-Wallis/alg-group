@@ -13,7 +13,7 @@ using namespace std;
 class AbstractFactory{
 	public:
 		AbstractFactory() {}
-		virtual Base* parse(int custom = 0, Base* left, Base* right, string operation) = 0;
+		virtual Base* parse(Base* l, Base* r, string x, int custom = 0) = 0;
 };
 
 
