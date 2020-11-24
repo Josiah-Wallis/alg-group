@@ -3,6 +3,7 @@
 #include "../op_header/base.hpp"
 #include "../op_header/op.hpp"
 #include "../op_header/custom.hpp"
+#include "../factory_header/op_factory.hpp"
 
 typedef Op o;
 
@@ -101,6 +102,23 @@ TEST(ModPTest, T1){
 	EXPECT_EQ(1, mod2->evaluate());
 	EXPECT_EQ(2, mod3->evaluate());
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 
 
 int main(int argc, char **argv){
