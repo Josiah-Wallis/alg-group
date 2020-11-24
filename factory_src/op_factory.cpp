@@ -98,6 +98,27 @@ Base* OpFactory::parse(Base* l, Base* r, string operation, int custom){
 
 
 	}
-	else{}//angela/ayush
-
+	else{
+		else if(operation == "+"){
+			return new Add(1, r);
+		}
+		else if(operation == "-"){
+			return new Sub(1, r);
+		}
+		else if(operation == "*"){
+			return new Mult(1, r);
+		}
+		else if(operation == "/"){
+			return new Div(1, r);
+		}
+		else if(operation == "**"){
+			return new Pow(1, r);
+		}
+		else if(isDigit(operation[0])){	/* need to double check */
+			return new(operation[0] -48);
+		}
+		else{
+			return 0;
+		}
+	}
 }
