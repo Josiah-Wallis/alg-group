@@ -103,8 +103,25 @@ TEST(ModPTest, T1){
 	EXPECT_EQ(2, mod3->evaluate());
 }
 
+TEST(CustomTest, T1){
+	o* x = new o(9);
+	o* y = new o(5);
 
+	Custom* custom = new Custom(x, y, "a*b+3-6");
+	
+	EXPECT_EQ(42, custom->evaluate());	
+}
 
+TEST(CustomTest, T2){
+	o* x = new o(2);
+	o* y = new o(4);
+
+	Custom* custom = new Custom(x, y, "a**b/2");
+
+	EXPECT_EQ(8, custom->evaluate());
+}
+
+	
 int main(int argc, char **argv){
 	::testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();

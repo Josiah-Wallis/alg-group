@@ -12,7 +12,7 @@ class Add: public Base{
 		virtual double evaluate() { return l->evaluate() + r->evaluate(); }
 		virtual bool has_inverse() { return true; }
 		virtual bool is_closed() { return true; }
-		virtual bool is_inverse(Base *a, Base* b) { return true; }
+		virtual bool is_inverse(Base *a, Base* e) { return true; }
 	private:
 		Base* l;
 		Base* r;
@@ -24,7 +24,7 @@ class Sub: public Base{
 		virtual double evaluate() { return l->evaluate() - r->evaluate(); }
 		virtual bool has_inverse() { return true; }
 		virtual bool is_closed() { return true; }
-		virtual bool is_inverse(Base* a, Base* b) { return true; }
+		virtual bool is_inverse(Base* a, Base* e) { return true; }
 	private:
 		Base* l;
 		Base* r;
@@ -36,7 +36,7 @@ class Div: public Base{
 		virtual double evaluate() { return l->evaluate() / r->evaluate(); }
 		virtual bool has_inverse() { return true; }
 		virtual bool is_closed() { return true; }
-		virtual bool is_inverse(Base* a, Base* b) { return true;}
+		virtual bool is_inverse(Base* a, Base* e) { return true;}
 	private:
 		Base* l;
 		Base* r;
@@ -48,7 +48,7 @@ class Mult: public Base{
 		virtual double evaluate() { return l->evaluate() * r->evaluate(); }
 		virtual bool has_inverse() { return true; }
 		virtual bool is_closed() { return true; }
-		virtual bool is_inverse(Base* a, Base* b) { return true; }
+		virtual bool is_inverse(Base* a, Base* e) { return true; }
 	private:
 		Base* l;
 		Base* r;
@@ -60,7 +60,7 @@ class Pow: public Base{
 		virtual double evaluate() { return pow(l->evaluate(), r->evaluate()); }
 		virtual bool has_inverse() { return true; }
 		virtual bool is_closed() { return true; }
-		virtual bool is_inverse(Base* a, Base* b) { return true; }
+		virtual bool is_inverse(Base* a, Base* e) { return true; }
 	private:
 		Base* l;
 		Base* r;
@@ -72,7 +72,7 @@ class ModM: public Base{
 		virtual double evaluate () { return (int)(l->evaluate() * r->evaluate()) % (int)mod->evaluate();}
 		virtual bool has_inverse() { return true; }
 		virtual bool is_closed() { return true; }
-		virtual bool is_inverse(Base* a, Base* b) { return true; }
+		virtual bool is_inverse(Base* a, Base* e) { return true; }
 	private:
 		Base* l;
 		Base* r;
@@ -85,7 +85,7 @@ class ModP: public Base{
 		virtual double evaluate() { return (int)(l->evaluate() + r->evaluate()) % (int)mod->evaluate(); }
 		virtual bool has_inverse() { return true; }
 		virtual bool is_closed() { return true; }
-		virtual bool is_inverse(Base* a, Base* b) { return true; }
+		virtual bool is_inverse(Base* a, Base* e) { return true; }
 	private:
 		Base* l;
 		Base* r;
