@@ -36,11 +36,17 @@ class Group{
 
 		//Primary function
 		bool is_group() const;
+		
+		//Saved States
+		void undo(); //uses memento to go to last group save
+		void back_track(int i); //goes back this many saved group iterations in
+		//the memento vector/container
 
 	private:
 		set<Op* >* group;
 		string binary_op;
-		OpFactory* factory;		
+		OpFactory* factory;	
+		//save a memento object in here to save last time group was verified	
 };
 
 #endif
