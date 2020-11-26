@@ -13,6 +13,7 @@ ADD_EXECUTABLE(op_tests
 ADD_EXECUTABLE(factory_tests
 	tests/factory_tests.cpp
 	factory_src/op_factory.cpp
+	op_src/custom.cpp
 )
 
 TARGET_LINK_LIBRARIES(op_tests gtest)

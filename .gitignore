@@ -5,4 +5,5 @@ cmake_install.cmake
 lib/
 op_tests
 factory_tests
-
+\\
+factory_src/.op_factory.cpp.swp
