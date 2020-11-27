@@ -7,3 +7,5 @@ op_tests
 factory_tests
 \\
 factory_src/.op_factory.cpp.swp
+group_tests
+

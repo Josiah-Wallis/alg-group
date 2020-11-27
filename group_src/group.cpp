@@ -13,19 +13,24 @@ Group::Group(set<Op* >* g, string op){
 }
 
 int Group::order() const{
-	return group->size();
+	if(!group)
+		return 0;
+	else
+		return group->size();
 }
 
 const set<Op* >* Group::associated_set() const{
-	return group;
+	const set<Op* >* x = group;
+	return x;
 }
 
 const string Group::binary_operation() const{
-	return binary_op;
+	const string x = binary_op;
+	return x;
 }
 
-bool Group::empty(){
-	if(group->empty())
+bool Group::empty() const{
+	if(!group)
 		return true;
 	else
 		return false;
@@ -40,11 +45,11 @@ void Group::set_binary_operation(string op){
 }
 
 void Group::insert(Op* ele){
-	
+	group->insert(ele);	
 }
 
-void Group::remove(Op* ele){
-	group->insert(ele);
+void Group::remove(double x){
+	//group->erase(ele);	
 }
 
 bool Group::is_group() const{

@@ -4,6 +4,8 @@
 #include "base.hpp"
 #include "../group_header/group.hpp"
 
+class Group;
+
 class Op : public Base{
 	public:
 		Op(double x) : value(x), l(0), r(0) {}

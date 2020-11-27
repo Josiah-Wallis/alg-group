@@ -1,16 +1,18 @@
 #ifndef _GROUP
 #define _GROUP
 
+#include "../op_header/op.hpp"
 #include "../op_header/operations.hpp"
 #include "../op_header/custom.hpp"
-#include "../op_header/op.hpp"
-#include "../op_header/base.hpp"
 #include "../factory_header/op_factory.hpp"
 
 #include <iostream>
 #include <set>
 #include <iterator>
 #include <string>
+
+class Op;
+class OpFactory;
 
 using namespace std;
 
@@ -32,7 +34,7 @@ class Group{
 		
 		//Basic actions
 		void insert(Op* );
-		void remove(Op* );
+		void remove(double );
 
 		//Primary function
 		bool is_group() const;
