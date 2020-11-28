@@ -47,7 +47,6 @@ class Group{
 	private:
 		set<Op* >* group;
 		string binary_op;
-		OpFactory* factory;	
 		//save a memento object in here to save last time group was verified	
 };
 

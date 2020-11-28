@@ -3,13 +3,13 @@
 Group::Group(string op){ 
 	binary_op = op;
 	group = 0;
-	factory = 0;
+	
 }
 
 Group::Group(set<Op* >* g, string op){
 	group = g;
 	binary_op = op;
-	factory = 0;
+	
 }
 
 int Group::order() const{
@@ -45,11 +45,34 @@ void Group::set_binary_operation(string op){
 }
 
 void Group::insert(Op* ele){
-	group->insert(ele);	
+	set<Op*>::iterator itr;
+	bool in = false;
+
+	if(!group)
+		return;
+	
+	for(itr = group->begin(); itr != group->end(); ++itr){
+		if((*itr)->evaluate() == ele->evaluate()){
+			in = true;
+			return;
+		}
+	}
+	if(!in)
+		group->insert(ele);
+			
 }
 
+
 void Group::remove(double x){
-	//group->erase(ele);	
+	set<Op*>::iterator itr;
+	
+	if(!group)
+		return;
+	
+	for(itr = group->begin(); itr != group->end(); ++itr){
+		if((*itr)->evaluate() == x)
+			group->erase(itr);
+	}
 }
 
 bool Group::is_group() const{

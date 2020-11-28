@@ -10,8 +10,26 @@ TEST(ConstructorTests, T1){
 	EXPECT_EQ("+", group->binary_operation());
 }
 
+TEST(ConstructorTests, T2){
+	set<Op*>* stuff = new set<Op*>{
+		new Op(5), new Op(3), new Op(7)};
 
+	Group* group = new Group(stuff, "-");
 
+	ASSERT_EQ(false, group->empty());
+	EXPECT_EQ(3, group->order());
+	EXPECT_EQ("-", group->binary_operation());
+
+	Op* x = new Op(6);
+	group->insert(x);
+
+	EXPECT_EQ(4, group->order());
+
+	Op* y = new Op(7);
+	group->insert(y);
+
+	EXPECT_EQ(4, group->order());
+}
 
 
 int main(int argc, char **argv){
