@@ -13,15 +13,17 @@ TEST(CustomParse, T1){
 	o* y = new o(7);
 	o* u = new o(3);
 	o* v = new o(2);
+	o* w = new o(4);
 
 	Base* z1 = factory->parse(x, y, "a+b+2" , 1);
 	Base* z2 = factory->parse(x, u, "a*b/3" , 1);
 	Base* z3 = factory->parse(x, v, "a**b-6", 1);
-
+	Base* z4 = factory->parse(x, w, "a*bmod7", 1);
 
 	EXPECT_EQ(z1->evaluate(), 14);
 	EXPECT_EQ(z2->evaluate(), 5);
 	EXPECT_EQ(z3->evaluate(), 19);
+	EXPECT_EQ(z4->evaluate(), 6);
 }
 
 TEST(AddOpTest, T1){
