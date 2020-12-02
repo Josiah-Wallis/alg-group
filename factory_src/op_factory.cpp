@@ -91,8 +91,19 @@ Base* OpFactory::parse(Base* l, Base* r, string operation, int custom){
 				}
 				else
 					return 0;
+			}else if(operation.substr(i, 3) == "mod"){
+				if(operation.substr(i,4) == "modm"){
+					Op* x = new Op(stoi(operation.substr(i+4)));
+					ModM* temp = new ModM(ops.front(), r, x);
+					ops.pop();
+					ops.push(temp);
+				}else if(operation.substr(i,4) == "modp"){
+					Op* x = new Op(stoi(operation.substr(i+4)));
+					ModP* temp = new ModP(ops.front(), r, x);
+					ops.pop();
+					ops.push(temp);
+				}
 			}
-			
 		}
 		return ops.front();
 
