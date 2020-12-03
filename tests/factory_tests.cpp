@@ -71,6 +71,24 @@ TEST(PowOpTest, T1){
 	EXPECT_EQ(powOp->evaluate(), 8);
 
 }
+TEST(ModMTest, T1){
+	of* factory = new of();
+	o* a = new o(2);
+	o* b = new o(7);
+
+	Base* ModMOp = factory->parse(a, b, "modm", 6);
+	EXPECT_EQ(ModMOp->evaluate(), 2);
+
+}
+TEST(ModPTest, T1){
+	of* factory = new of();
+	o* a = new o(3);
+	o* b = new o(7);
+
+	Base* ModMOp = factory->parse(a, b, "modp", 6);
+	EXPECT_EQ(ModMOp->evaluate(), 4);
+
+}
 
 int main(int argc, char **argv){
 	::testing::InitGoogleTest(&argc, argv);
