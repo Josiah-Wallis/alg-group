@@ -91,18 +91,6 @@ Base* OpFactory::parse(Base* l, Base* r, string operation, int custom){
 				}
 				else
 					return 0;
-			}else if(operation.substr(i, 3) == "mod"){
-				if(operation.substr(i,4) == "modm"){
-					Op* x = new Op(stoi(operation.substr(i+4)));
-					ModM* temp = new ModM(ops.front(), r, x);
-					ops.pop();
-					ops.push(temp);
-				}else if(operation.substr(i,4) == "modp"){
-					Op* x = new Op(stoi(operation.substr(i+4)));
-					ModP* temp = new ModP(ops.front(), r, x);
-					ops.pop();
-					ops.push(temp);
-				}
 			}
 		}
 		return ops.front();
@@ -129,6 +117,17 @@ Base* OpFactory::parse(Base* l, Base* r, string operation, int custom){
 
 			return new Op(operation[0] - 48);
 
+		}
+		else if(operation.substr(0, 3) == "mod"){
+			if(operation.substr(0,4) == "modm"){
+				Op* x = new Op(stoi(operation.substr(4)));
+				ModM* temp = new ModM(l, r, x);
+				return temp;
+			}else if(operation.substr(0,4) == "modp"){
+				Op* x = new Op(stoi(operation.substr(4)));
+				ModP* temp = new ModP(l, r, x);
+				return temp;
+			}
 		}
 		else{
 			return 0;
