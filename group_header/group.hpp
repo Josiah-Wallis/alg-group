@@ -5,6 +5,7 @@
 #include "../op_header/operations.hpp"
 #include "../op_header/custom.hpp"
 #include "../factory_header/op_factory.hpp"
+#include "../memento_header/memento.hpp"
 
 #include <iostream>
 #include <set>
@@ -13,6 +14,8 @@
 
 class Op;
 class OpFactory;
+class GroupBank;
+class Caretaker;
 
 using namespace std;
 
@@ -46,6 +49,9 @@ class Group{
 		void undo(); //uses memento to go to last group save
 		void back_track(int i); //goes back this many saved group iterations in
 		//the memento vector/container
+
+		friend class GroupBank;
+		friend class Caretaker;
 
 	private:
 		set<Op* >* group;
