@@ -13,15 +13,17 @@ TEST(CustomParse, T1){
 	o* y = new o(7);
 	o* u = new o(3);
 	o* v = new o(2);
+	o* w = new o(4);
 
 	Base* z1 = factory->parse(x, y, "a+b+2" , 1);
 	Base* z2 = factory->parse(x, u, "a*b/3" , 1);
 	Base* z3 = factory->parse(x, v, "a**b-6", 1);
-
+	Base* z4 = factory->parse(x, w, "a*bmod7", 1);
 
 	EXPECT_EQ(z1->evaluate(), 14);
 	EXPECT_EQ(z2->evaluate(), 5);
 	EXPECT_EQ(z3->evaluate(), 19);
+	EXPECT_EQ(z4->evaluate(), 6);
 }
 
 TEST(AddOpTest, T1){
@@ -67,6 +69,24 @@ TEST(PowOpTest, T1){
 	
 	Base* powOp = factory->parse(a, b, "**", 0);
 	EXPECT_EQ(powOp->evaluate(), 8);
+
+}
+TEST(ModMTest, T1){
+	of* factory = new of();
+	o* a = new o(2);
+	o* b = new o(7);
+
+	Base* ModMOp = factory->parse(a, b, "modm", 6);
+	EXPECT_EQ(ModMOp->evaluate(), 2);
+
+}
+TEST(ModPTest, T1){
+	of* factory = new of();
+	o* a = new o(3);
+	o* b = new o(7);
+
+	Base* ModMOp = factory->parse(a, b, "modp", 6);
+	EXPECT_EQ(ModMOp->evaluate(), 4);
 
 }
 
