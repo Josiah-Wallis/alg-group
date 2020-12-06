@@ -1,5 +1,10 @@
 #include "../group_header/group.hpp"
 
+Group::Group(){
+	binary_op = "";
+	group = 0;
+}
+
 Group::Group(string op){ 
 	binary_op = op;
 	group = 0;
@@ -42,6 +47,15 @@ void Group::set_group(set<Op* >* g){
 
 void Group::set_binary_operation(string op){
 	binary_op = op;
+}
+
+set<Op*>* Group::mutable_set(){
+	if(group){
+		set<Op*>* stuff = new set<Op*>(*group);
+		return stuff;
+	}
+
+	return 0;
 }
 
 void Group::insert(Op* ele){

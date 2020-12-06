@@ -19,6 +19,7 @@ using namespace std;
 class Group{
 	public:
 		//Constructors
+		Group();
 		Group(string );
 		Group(set<Op*>*, string );
 		
@@ -35,6 +36,7 @@ class Group{
 		//Basic actions
 		void insert(Op* );
 		void remove(double );
+		set<Op*>* mutable_set();
 
 		//Primary function
 		bool is_group() const;
