@@ -20,6 +20,8 @@ Group::Group(set<Op* >* g, string op){
 int Group::order() const{
 	if(!group)
 		return 0;
+	else if(group->size() == 0)
+		return 0;
 	else
 		return group->size();
 }
@@ -36,6 +38,8 @@ const string Group::binary_operation() const{
 
 bool Group::empty() const{
 	if(!group)
+		return true;
+	if(group->size() == 0)
 		return true;
 	else
 		return false;
@@ -89,6 +93,40 @@ void Group::remove(double x){
 	}
 }
 
+void Group::print() const{
+	set<Op*>::iterator itr;
+
+	if(!group)
+		std::cout << "Your group has no elements to print!" << std::endl;
+	else if(group->size() == 0)
+		std::cout << "Your group has no elements to print!" << std::endl;
+	else{
+		for(itr = group->begin(); itr != group->end(); ++itr){
+			std::cout << (*itr)->evaluate() << std::endl;
+		}
+	}
+}
+
+Op* Group::identity() const{
+
+}
+
 bool Group::is_group() const{
 	return true; //stub
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

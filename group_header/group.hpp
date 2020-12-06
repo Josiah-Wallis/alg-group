@@ -37,8 +37,10 @@ class Group{
 		void insert(Op* );
 		void remove(double );
 		set<Op*>* mutable_set();
+		void print() const;
 
-		//Primary function
+		//Primary functions
+		Op* identity() const;
 		bool is_group() const;
 		
 		//Saved States
