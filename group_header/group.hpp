@@ -40,7 +40,6 @@ class Group{
 		void print() const;
 
 		//Primary functions
-		Op* identity() const;
 		bool is_group() const;
 		
 		//Saved States

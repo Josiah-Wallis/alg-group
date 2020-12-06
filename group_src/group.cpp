@@ -107,10 +107,6 @@ void Group::print() const{
 	}
 }
 
-Op* Group::identity() const{
-
-}
-
 bool Group::is_group() const{
 	return true; //stub
 }
