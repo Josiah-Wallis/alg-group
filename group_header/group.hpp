@@ -1,10 +1,9 @@
 #ifndef _GROUP
 #define _GROUP
 
+#include "../op_header/op.hpp"
 #include "../op_header/operations.hpp"
 #include "../op_header/custom.hpp"
-#include "../op_header/op.hpp"
-#include "../op_header/base.hpp"
 #include "../factory_header/op_factory.hpp"
 
 #include <iostream>
@@ -12,11 +11,15 @@
 #include <iterator>
 #include <string>
 
+class Op;
+class OpFactory;
+
 using namespace std;
 
 class Group{
 	public:
 		//Constructors
+		Group();
 		Group(string );
 		Group(set<Op*>*, string );
 		
@@ -32,15 +35,21 @@ class Group{
 		
 		//Basic actions
 		void insert(Op* );
-		void remove(Op* );
+		void remove(double );
+		set<Op*>* mutable_set();
 
 		//Primary function
 		bool is_group() const;
+		
+		//Saved States
+		void undo(); //uses memento to go to last group save
+		void back_track(int i); //goes back this many saved group iterations in
+		//the memento vector/container
 
 	private:
 		set<Op* >* group;
 		string binary_op;
-		OpFactory* factory;		
+		//save a memento object in here to save last time group was verified	
 };
 
 #endif
