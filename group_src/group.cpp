@@ -86,6 +86,13 @@ void Group::insert(Op* ele){
 	}
 	if(!in)
 		group->insert(ele);
+
+	if(this->is_group()){
+		bank->setLastSave(this);
+		if(!all_saves)
+			all_saves = new Caretaker();
+		all_saves->force_save(this, this);
+	}
 			
 }
 
@@ -120,18 +127,39 @@ bool Group::is_group() const{
 	return true; //stub
 }
 
+void Group::undo(){
+	bank->restore(this);
+}
 
+void Group::back_track(int i){
+	if(!all_saves){
+		std::cout << "No saves, but we'll make a caretaker for you!" << std::endl;
+		all_saves = new Caretaker();
+		return;
+	}
+	save = all_saves->select_save(all_saves->num_saves() - i);
+}
 
+void Group::safe_save(){
+	if(!all_saves){
+		std::cout << "No caretaker, but we'll make one for you!" << std::endl;
+		all_saves = new Caretaker();
+		all_saves->check_save(this, this);
+		return;
+	}
+	all_saves->check_save(this, this);
+	
+}
 
-
-
-
-
-
-
-
-
-
+void Group::force_save(){
+	if(!all_saves){
+		std::cout << "No caretaker, but we'll make one for you!" << std::endl;
+		all_saves = new Caretaker();
+		all_saves->force_save(this, this);
+		return;
+	}
+	all_saves->force_save(this, this);
+}
 
 
 
