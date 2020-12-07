@@ -28,6 +28,7 @@ ADD_EXECUTABLE(memento_tests
 	group_src/group.cpp
 	factory_src/op_factory.cpp
 	op_src/custom.cpp
+	memento_src/memento.cpp
 )
 
 TARGET_LINK_LIBRARIES(group_tests gtest)

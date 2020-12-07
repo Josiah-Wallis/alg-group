@@ -1,6 +1,6 @@
 #include "../memento_header/memento.hpp"
 
-Caretaker::Caretaler() {
+Caretaker::Caretaker() {
 	mementos = 0;
 }
 
@@ -42,12 +42,25 @@ void Caretaker::check_save(Group* group) { //finish later
 
 	if(!group){
 		std::cout << "Force save to save a null pointer. Entered group will not be saved" << std::endl;
+		return;
+	}
 	else{
-		if(group->is_group())
-			mementos->push_back(gro
+		if(group->is_group()){
+			GoodGroup* x = bank->create_memento();
+			mementos->push_back(x);
+		}
+		else
+			std::cout << "The passed object is not a group and will not be saved." << std::endl;
+	}
 }
 
-void Caretaker::force_save(Group* group) {} //finish later
+void Caretaker::force_save(Group* group){
+	// Let user know this is very dangerous because the functionality assumes last memento is a group
+	if(!mementos)
+		mementos = new vector<GoodGroup*>;
+	GoodGroup* x = bank->create_memento();
+	mementos->push_back(x); //COULD BE ERROR HERE	
+} //finish later
 
 int Caretaker::num_saves(){
 	if(!mementos)
@@ -76,6 +89,16 @@ GoodGroup* GroupBank::create_memento(){
 	x->s_op = saved_op;
 	return x;
 }
+
+void GroupBank::restore(){
+	if(!save){
+		std::cout << "You have no save points to roll back to!" << std::endl;
+		return;
+	}
+	group = save->getSet();
+	binary_op = save->getOp();
+}
+
 
 GoodGroup::GoodGroup() {
 	s_set = 0;

@@ -4,9 +4,11 @@
 #include "../group_header/group.hpp"
 
 #include <vector>
+#include <set>
 
 class Group;
 class GoodGroup;
+class Op;
 
 using namespace std;
 
@@ -29,6 +31,7 @@ class GroupBank{ //Originator
 		GroupBank();
 		void setLastSave(); //sets current group to last save using memento in group
 		GoodGroup* create_memento(); //creates memento using saved data
+		void restore(); //rolls back group to last save state
 	private:
 		set<Op*>* saved_set;
 		string saved_op;

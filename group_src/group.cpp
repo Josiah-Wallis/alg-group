@@ -3,26 +3,26 @@
 Group::Group(){
 	binary_op = "";
 	group = 0;
-	bank = 0;
+	bank = new GroupBank();
 	save = 0;
-	all_saves = 0;	
+	all_saves = new Caretaker();
 }
 
 Group::Group(string op){ 
 	binary_op = op;
 	group = 0;
-	bank = 0;
+	bank = new GroupBank();
 	save = 0;
-	all_saves = 0;
+	all_saves = new Caretaker();
 	
 }
 
 Group::Group(set<Op* >* g, string op){
 	group = g;
 	binary_op = op;
-	bank = 0;
+	bank = new GroupBank();
 	save = 0;
-	all_saves = 0;
+	all_saves = new Caretaker(); //COMEBACk after finishing force_save
 	//make it so memento is saved as first state group is in, only if initialized with values	
 }
 
