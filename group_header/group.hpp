@@ -16,6 +16,7 @@ class Op;
 class OpFactory;
 class GroupBank;
 class Caretaker;
+class GoodGroup;
 
 using namespace std;
 
@@ -49,6 +50,8 @@ class Group{
 		void undo(); //uses memento to go to last group save
 		void back_track(int i); //goes back this many saved group iterations in
 		//the memento vector/container
+		void safe_save(); //check_sve and update memento if is_group()
+		void force_save(); //force saves and updates memento
 
 		friend class GroupBank;
 		friend class Caretaker;

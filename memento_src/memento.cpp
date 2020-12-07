@@ -1,6 +1,6 @@
 #include "../memento_header/memento.hpp"
 
-Caretaker::Caretaler() {
+Caretaker::Caretaker() {
 	mementos = 0;
 }
 
@@ -36,18 +36,31 @@ GoodGroup* Caretaker::select_save(int i) {
 	
 }
 
-void Caretaker::check_save(Group* group) { //finish later
+void Caretaker::check_save(Group* group, Group* current) { //finish later
 	if(!mementos)
 		mementos = new vector<GoodGroup*>;
 
 	if(!group){
 		std::cout << "Force save to save a null pointer. Entered group will not be saved" << std::endl;
+		return;
+	}
 	else{
-		if(group->is_group())
-			mementos->push_back(gro
+		if(group->is_group()){
+			GoodGroup* x = current->bank->create_memento();
+			mementos->push_back(x);
+		}
+		else
+			std::cout << "The passed object is not a group and will not be saved." << std::endl;
+	}
 }
 
-void Caretaker::force_save(Group* group) {} //finish later
+void Caretaker::force_save(Group* group, Group* current){
+	// Let user know this is very dangerous because the functionality assumes last memento is a group
+	if(!mementos)
+		mementos = new vector<GoodGroup*>;
+	GoodGroup* x = current->bank->create_memento();
+	mementos->push_back(x); //COULD BE ERROR HERE	
+} //finish later
 
 int Caretaker::num_saves(){
 	if(!mementos)
@@ -61,13 +74,13 @@ GroupBank::GroupBank() {
 	saved_op = "";
 }
 
-void GroupBank::setLastSave() {
-	if(!group)
+void GroupBank::setLastSave(Group* current) {
+	if(!current->group)
 		return;
-	set<Op*>* x = new set<Op*>(*group);
-	save = new GoodGroup();
-	save->s_set = x;
-	save->s_op = binary_op;
+	set<Op*>* x = new set<Op*>(*(current->group));
+	current->save = new GoodGroup();
+	current->save->s_set = x;
+	current->save->s_op = current->binary_op;
 }
 
 GoodGroup* GroupBank::create_memento(){
@@ -76,6 +89,16 @@ GoodGroup* GroupBank::create_memento(){
 	x->s_op = saved_op;
 	return x;
 }
+
+void GroupBank::restore(Group* current){
+	if(!current->save){
+		std::cout << "You have no save points to roll back to!" << std::endl;
+		return;
+	}
+	current->group = current->save->getSet();
+	current->binary_op = current->save->getOp();
+}
+
 
 GoodGroup::GoodGroup() {
 	s_set = 0;

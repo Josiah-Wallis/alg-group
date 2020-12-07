@@ -4,9 +4,11 @@
 #include "../group_header/group.hpp"
 
 #include <vector>
+#include <set>
 
 class Group;
 class GoodGroup;
+class Op;
 
 using namespace std;
 
@@ -16,8 +18,8 @@ class Caretaker{ //Caretaker
 
 		void clear_saves();
 		GoodGroup* select_save(int i);
-		void check_save(Group*); //place these checks whenever a group is changed, checks if savable
-		void force_save(Group*);
+		void check_save(Group*, Group*); //place these checks whenever a group is changed, checks if savable
+		void force_save(Group*, Group*);//group to be saved, group we're working with
 		int num_saves();
 
 	private:
@@ -27,8 +29,9 @@ class Caretaker{ //Caretaker
 class GroupBank{ //Originator
 	public:
 		GroupBank();
-		void setLastSave(); //sets current group to last save using memento in group
+		void setLastSave(Group*); //sets current group to last save using memento in group
 		GoodGroup* create_memento(); //creates memento using saved data
+		void restore(Group*); //rolls back group to last save state
 	private:
 		set<Op*>* saved_set;
 		string saved_op;
