@@ -6,6 +6,7 @@
 #include <vector>
 
 class Group;
+class GoodGroup;
 
 using namespace std;
 
@@ -43,7 +44,7 @@ class GoodGroup{ //Memento
 
 	private:
 		set<Op*>* s_set;
-		string s_op
+		string s_op;
 };
 
 
