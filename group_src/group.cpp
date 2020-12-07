@@ -3,18 +3,27 @@
 Group::Group(){
 	binary_op = "";
 	group = 0;
+	bank = 0;
+	save = 0;
+	all_saves = 0;	
 }
 
 Group::Group(string op){ 
 	binary_op = op;
 	group = 0;
+	bank = 0;
+	save = 0;
+	all_saves = 0;
 	
 }
 
 Group::Group(set<Op* >* g, string op){
 	group = g;
 	binary_op = op;
-	
+	bank = 0;
+	save = 0;
+	all_saves = 0;
+	//make it so memento is saved as first state group is in, only if initialized with values	
 }
 
 int Group::order() const{
