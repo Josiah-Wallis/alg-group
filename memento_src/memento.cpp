@@ -99,6 +99,10 @@ void GroupBank::restore(Group* current){
 	current->binary_op = current->save->getOp();
 }
 
+void GroupBank::setStage(Group* current){
+	saved_set = current->mutable_set();
+	saved_op = current->binary_operation();
+}
 
 GoodGroup::GoodGroup() {
 	s_set = 0;
