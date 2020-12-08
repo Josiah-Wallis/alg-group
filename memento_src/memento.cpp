@@ -36,7 +36,7 @@ GoodGroup* Caretaker::select_save(int i) {
 	
 }
 
-void Caretaker::check_save(Group* group, Group* current) { //finish later
+void Caretaker::check_save(Group* group, Group* current) {
 	if(!mementos)
 		mementos = new vector<GoodGroup*>;
 
@@ -69,7 +69,7 @@ void Caretaker::force_save(Group* group, Group* current){
 	mementos->push_back(x); //COULD BE ERROR HERE	
 	if(!current->save)
 		current->save = mementos->at(0);
-} //finish later
+}
 
 int Caretaker::num_saves(){
 	if(!mementos)
@@ -80,7 +80,6 @@ int Caretaker::num_saves(){
 
 GroupBank::GroupBank(Group* current) {
 	saved_set = current->mutable_set();
-	std::cout << "Saved set size: " << saved_set->size() << std::endl;
 	saved_op = current->binary_operation();
 }
 
@@ -88,12 +87,10 @@ void GroupBank::setLastSave(Group* current) {
 	if(!current->group)
 		return;
 	set<Op*>* x = current->mutable_set();
-	std::cout << "setLastSave mutable set size: " << x->size() << std::endl;
 	saved_set = x;
 	saved_op = current->binary_operation();
 	
 	current->save = create_memento();
-	std::cout << "setLastSave memento set size: " << current->save->getSet()->size() << std::endl;
 }
 
 GoodGroup* GroupBank::create_memento(){
@@ -104,10 +101,15 @@ GoodGroup* GroupBank::create_memento(){
 }
 
 void GroupBank::restore(Group* current, int x){
-	if(!current->save){
+	if(!current->save && x == 1){
 		std::cout << "You have no save points to roll back to!" << std::endl;
 		return;
 	}
+	if(!current->questionable_save && x == 0){
+		std::cout << "You have no save points to roll back to!" << std::endl;
+		return;
+	}
+
 	if(!x){
 		current->group = current->questionable_save->getSet();
 		current->binary_op = current->questionable_save->getOp();

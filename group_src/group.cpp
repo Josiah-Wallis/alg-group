@@ -101,6 +101,7 @@ void Group::insert(Op* ele){
 		all_saves->force_save(this, this);
 		bank->setLastSave(this);
 	}
+
 			
 }
 
