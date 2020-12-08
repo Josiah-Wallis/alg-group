@@ -3,16 +3,18 @@
 Group::Group(){
 	binary_op = "";
 	group = 0;
-	bank = new GroupBank();
+	bank = new GroupBank(this);
 	save = 0;
+	questionable_save = 0;
 	all_saves = new Caretaker();
 }
 
 Group::Group(string op){ 
 	binary_op = op;
 	group = 0;
-	bank = new GroupBank();
+	bank = new GroupBank(this);
 	save = 0;
+	questionable_save = 0;
 	all_saves = new Caretaker();
 	
 }
@@ -20,8 +22,9 @@ Group::Group(string op){
 Group::Group(set<Op* >* g, string op){
 	group = g;
 	binary_op = op;
-	bank = new GroupBank();
+	bank = new GroupBank(this);
 	save = 0;
+	questionable_save = 0;
 	all_saves = new Caretaker(); //COMEBACk after finishing force_save
 	//make it so memento is saved as first state group is in, only if initialized with values	
 }
@@ -77,6 +80,11 @@ void Group::insert(Op* ele){
 
 	if(!group)
 		return;
+
+	if(!questionable_save)
+		questionable_save = new GoodGroup();
+	questionable_save->s_set = this->mutable_set();
+	questionable_save->s_op = this->binary_operation();
 	
 	for(itr = group->begin(); itr != group->end(); ++itr){
 		if((*itr)->evaluate() == ele->evaluate()){
@@ -88,10 +96,10 @@ void Group::insert(Op* ele){
 		group->insert(ele);
 
 	if(this->is_group()){
-		bank->setLastSave(this);
-		if(!all_saves)
-			all_saves = new Caretaker();
+		//setLastSave used to be here
+		std::cout << group->size() << std::endl;
 		all_saves->force_save(this, this);
+		bank->setLastSave(this);
 	}
 			
 }
@@ -124,11 +132,11 @@ void Group::print() const{
 }
 
 bool Group::is_group() const{
-	return true; //stub
+	return false; //stub
 }
 
-void Group::undo(){
-	bank->restore(this);
+void Group::undo(int x){
+	bank->restore(this, x);
 }
 
 void Group::back_track(int i){

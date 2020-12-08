@@ -47,7 +47,14 @@ void Caretaker::check_save(Group* group, Group* current) { //finish later
 	else{
 		if(group->is_group()){
 			GoodGroup* x = current->bank->create_memento();
+			std::cout << "Memento set size: " <<  x->getSet()->size() << std::endl;
 			mementos->push_back(x);
+			if(!current->save){
+				current->save = mementos->at(0);
+				std::cout << "Memento set size check 2: " << current->save->getSet()->size() << std::endl;
+			}
+			else
+				current->bank->setLastSave(current);
 		}
 		else
 			std::cout << "The passed object is not a group and will not be saved." << std::endl;
@@ -60,6 +67,8 @@ void Caretaker::force_save(Group* group, Group* current){
 		mementos = new vector<GoodGroup*>;
 	GoodGroup* x = current->bank->create_memento();
 	mementos->push_back(x); //COULD BE ERROR HERE	
+	if(!current->save)
+		current->save = mementos->at(0);
 } //finish later
 
 int Caretaker::num_saves(){
@@ -69,18 +78,22 @@ int Caretaker::num_saves(){
 		return mementos->size();
 }
 
-GroupBank::GroupBank() {
-	saved_set = 0;
-	saved_op = "";
+GroupBank::GroupBank(Group* current) {
+	saved_set = current->mutable_set();
+	std::cout << "Saved set size: " << saved_set->size() << std::endl;
+	saved_op = current->binary_operation();
 }
 
 void GroupBank::setLastSave(Group* current) {
 	if(!current->group)
 		return;
-	set<Op*>* x = new set<Op*>(*(current->group));
-	current->save = new GoodGroup();
-	current->save->s_set = x;
-	current->save->s_op = current->binary_op;
+	set<Op*>* x = current->mutable_set();
+	std::cout << "setLastSave mutable set size: " << x->size() << std::endl;
+	saved_set = x;
+	saved_op = current->binary_operation();
+	
+	current->save = create_memento();
+	std::cout << "setLastSave memento set size: " << current->save->getSet()->size() << std::endl;
 }
 
 GoodGroup* GroupBank::create_memento(){
@@ -90,18 +103,20 @@ GoodGroup* GroupBank::create_memento(){
 	return x;
 }
 
-void GroupBank::restore(Group* current){
+void GroupBank::restore(Group* current, int x){
 	if(!current->save){
 		std::cout << "You have no save points to roll back to!" << std::endl;
 		return;
 	}
-	current->group = current->save->getSet();
-	current->binary_op = current->save->getOp();
-}
-
-void GroupBank::setStage(Group* current){
-	saved_set = current->mutable_set();
-	saved_op = current->binary_operation();
+	if(!x){
+		current->group = current->questionable_save->getSet();
+		current->binary_op = current->questionable_save->getOp();
+	}
+	else{
+		current->group = current->save->getSet();
+		current->binary_op = current->save->getOp();
+	}
+	
 }
 
 GoodGroup::GoodGroup() {
