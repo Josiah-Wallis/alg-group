@@ -1,20 +1,13 @@
-#ifndef _INVERSE
-#define _INVERSE
+#ifndef _INVERSE_
+#define _INVERSE_
 
 #include "../group_header/group.hpp"
 #include "verifier.hpp"
-#include <vector>
 
-class Inverse : Verifier{
+class Inverse : public Verifier{
 	public:
-		Inverse();
-        vector<bool> check(int num1, int num2);
-        void pass(Group* g);
-        void setGroup(Group* group){g=group;};
-        virtual bool verify();
-
-	private:
-        Group* g;
+		Inverse() : Verifier() {}
+        	virtual bool verify();
 };
 
-#endif
+#endif //_INVERSE_

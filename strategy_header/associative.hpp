@@ -1,20 +1,13 @@
-#ifndef _ASSOCIATIVE
-#define _ASSOCIATIVE
+#ifndef _ASSOCIATIVE_
+#define _ASSOCIATIVE_
 
 #include "../group_header/group.hpp"
 #include "verifier.hpp"
-#include <vector>
 
-class Associative : Verifier{
+class Associative : public Verifier{
 	public:
-		Associative();
-        vector<bool> check(int num1, int num2);
-        void pass(Group* g);
-        void setGroup(Group* group){g = group;};
-        virtual bool verify();
-
-	private:
-        Group* g;
+		Associative() : Verifier() {}
+       		virtual bool verify();
 };
 
-#endif
+#endif //_ASSOCIATIVE_

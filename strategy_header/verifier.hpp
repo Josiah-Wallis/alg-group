@@ -1,20 +1,19 @@
-#ifndef _VERIFIER
-#define _VERIFIER
+#ifndef _VERIFIER_
+#define _VERIFIER_
 
 #include "../group_header/group.hpp"
-#include <vector>
 
 class Verifier{
 	public:
-		Verifier();
-        vector<bool> check(int num1, int num2);
-        void pass(Group* g);
-        void setGroup(Group* group){g = group;};
-        virtual bool verify() = 0;
-
-	private:
-		vector<Verifier* > verifier;
-        Group* g;
+		Verifier(){
+	       		g = 0;
+       		}
+        	void setGroup(Group* group){
+            		g = group;
+        	}
+        	virtual bool verify() = 0;
+	protected:
+        	Group* g;
 };
 
-#endif
+#endif // _VERIFIER_
