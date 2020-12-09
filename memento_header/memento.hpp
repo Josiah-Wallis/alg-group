@@ -28,11 +28,10 @@ class Caretaker{ //Caretaker
 
 class GroupBank{ //Originator
 	public:
-		GroupBank();
+		GroupBank(Group*);
 		void setLastSave(Group*); //sets current group to last save using memento in group
 		GoodGroup* create_memento(); //creates memento using saved data
-		void restore(Group*); //rolls back group to last save state
-		void setStage(Group*);
+		void restore(Group*, int); //rolls back group to last save state
 	private:
 		set<Op*>* saved_set;
 		string saved_op;
@@ -45,6 +44,8 @@ class GoodGroup{ //Memento
 		string getOp(); 
 
 		friend class GroupBank;	
+		friend class Group; 
+		//limited to insert and remove
 
 	private:
 		set<Op*>* s_set;
