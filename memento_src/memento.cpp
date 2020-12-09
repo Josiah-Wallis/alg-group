@@ -57,7 +57,7 @@ void Caretaker::check_save(Group* group, Group* current) {
 				current->bank->setLastSave(current);
 		}
 		else
-			std::cout << "The passed object is not a group and will not be saved." << std::endl;
+			std::cout << "The passed object is not a group and will not be safe saved." << std::endl;
 	}
 }
 

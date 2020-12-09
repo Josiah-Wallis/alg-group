@@ -3,7 +3,7 @@
 #include "../op_header/op.hpp"
 #include "gtest/gtest.h"
 
-TEST(hijacuwu, T1){
+TEST(UndoTest, T1){
 	set<Op*>* x = new set<Op*> {new Op(1), new Op(5)};
 	string op = "modm6";
 
@@ -29,6 +29,29 @@ TEST(hijacuwu, T1){
 
 }
 
+
+TEST(UndoTest, T2){
+	set<Op*>* x = new set<Op*> { new Op(1), new Op(5)};
+	string op = "modm6";
+
+	Group* group = new Group(x, op);
+
+	ASSERT_EQ(group->order(), 2);
+	ASSERT_EQ(group->binary_operation(), "modm6");
+
+	group->safe_save();
+
+	group->insert(new Op(4));
+	group->insert(new Op(6));
+
+	EXPECT_EQ(group->order(), 4);
+	
+	//group->undo(0);
+
+	//EXPECT_EQ(group->order(), 3);
+}
+
+	
 
 
 int main(int argc, char **argv){

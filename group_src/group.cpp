@@ -62,6 +62,7 @@ void Group::set_group(set<Op* >* g){
 }
 
 void Group::set_binary_operation(string op){
+	questionable_save->s_op = binary_op;
 	binary_op = op;
 }
 
