@@ -47,7 +47,7 @@ class Group{
 		bool is_group() const;
 		
 		//Saved States
-		void undo(); //uses memento to go to last group save
+		void undo(int); //uses memento to go to last group save
 		void back_track(int i); //goes back this many saved group iterations in
 		//the memento vector/container
 		void safe_save(); //check_sve and update memento if is_group()
@@ -61,6 +61,7 @@ class Group{
 		string binary_op;
 		GroupBank* bank;
 		GoodGroup* save;
+		GoodGroup* questionable_save;
 		Caretaker* all_saves;
 		//save a memento object in here to save last time group was verified	
 };
