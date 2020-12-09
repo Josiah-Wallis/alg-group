@@ -53,6 +53,8 @@ class Group{
 		void safe_save(); //check_sve and update memento if is_group()
 		void force_save(); //force saves and updates memento
 
+		int num_saves() const;
+
 		friend class GroupBank;
 		friend class Caretaker;
 

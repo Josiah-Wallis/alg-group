@@ -65,6 +65,7 @@ void Caretaker::force_save(Group* group, Group* current){
 	// Let user know this is very dangerous because the functionality assumes last memento is a group
 	if(!mementos)
 		mementos = new vector<GoodGroup*>;
+	current->bank->update(current);
 	GoodGroup* x = current->bank->create_memento();
 	mementos->push_back(x); //COULD BE ERROR HERE	
 	if(!current->save)
@@ -111,14 +112,28 @@ void GroupBank::restore(Group* current, int x){
 	}
 
 	if(!x){
+		GroupBank* stuff = new GroupBank(current); //new
+
 		current->group = current->questionable_save->getSet();
 		current->binary_op = current->questionable_save->getOp();
+
+		current->questionable_save = stuff->create_memento(); //new
+			
 	}
 	else{
+		GroupBank* stuff = new GroupBank(current); //new
+
 		current->group = current->save->getSet();
 		current->binary_op = current->save->getOp();
+
+		current->questionable_save = stuff->create_memento(); //new
 	}
 	
+}
+
+void GroupBank::update(Group* current){
+	saved_set = current->mutable_set();
+	saved_op = current->binary_operation();
 }
 
 GoodGroup::GoodGroup() {

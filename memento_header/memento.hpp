@@ -32,6 +32,7 @@ class GroupBank{ //Originator
 		void setLastSave(Group*); //sets current group to last save using memento in group
 		GoodGroup* create_memento(); //creates memento using saved data
 		void restore(Group*, int); //rolls back group to last save state
+		void update(Group*); //added really late
 	private:
 		set<Op*>* saved_set;
 		string saved_op;

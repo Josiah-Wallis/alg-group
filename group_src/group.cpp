@@ -38,6 +38,10 @@ int Group::order() const{
 		return group->size();
 }
 
+int Group::num_saves() const{
+	return all_saves->num_saves();
+}
+
 const set<Op* >* Group::associated_set() const{
 	const set<Op* >* x = group;
 	return x;
@@ -147,7 +151,7 @@ void Group::back_track(int i){
 		all_saves = new Caretaker();
 		return;
 	}
-	save = all_saves->select_save(all_saves->num_saves() - i);
+	save = all_saves->select_save(all_saves->num_saves() - i - 1);
 }
 
 void Group::safe_save(){
