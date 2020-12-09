@@ -13,9 +13,6 @@ class Custom: public Base{
 			set_operation(custom_op);
 		}
 		virtual double evaluate();
-		virtual bool has_inverse() { return true; }
-		virtual bool is_closed() { return true; }
-		virtual bool is_inverse(Base *a, Base *e = 0) { return true; }
 		void set_operation(string ); //helper function for evaluate()
 	private:
 		Base* l;
