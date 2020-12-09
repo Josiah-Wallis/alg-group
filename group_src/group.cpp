@@ -5,7 +5,7 @@ Group::Group(){
 	group = 0;
 	bank = new GroupBank(this);
 	save = 0;
-	questionable_save = 0;
+	questionable_save = bank->create_memento();
 	all_saves = new Caretaker();
 }
 
@@ -14,7 +14,7 @@ Group::Group(string op){
 	group = 0;
 	bank = new GroupBank(this);
 	save = 0;
-	questionable_save = 0;
+	questionable_save = bank->create_memento();
 	all_saves = new Caretaker();
 	
 }
@@ -24,7 +24,7 @@ Group::Group(set<Op* >* g, string op){
 	binary_op = op;
 	bank = new GroupBank(this);
 	save = 0;
-	questionable_save = 0;
+	questionable_save = bank->create_memento();
 	all_saves = new Caretaker(); //COMEBACk after finishing force_save
 	//make it so memento is saved as first state group is in, only if initialized with values	
 }
