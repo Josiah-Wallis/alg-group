@@ -1,20 +1,18 @@
-#ifndef _IDENTITY
-#define _IDENTITY
+#ifndef _IDENTITY_
+#define _IDENTITY_
 
 #include "../group_header/group.hpp"
 #include "verifier.hpp"
-#include <vector>
 
-class Identity : Verifier{
+class Identity : public Verifier{
 	public:
-		Identity();
-        vector<bool> check(int num1, int num2);
-        void pass(Group* g);
-        void setGroup(Group* group){g = group;};
-        virtual bool verify();
-
-	private:
-        Group* g;
+		Identity() : Verifier() {
+            		identity = 0;
+       		}
+        	virtual bool verify();
+        	Op* getIdentity(){
+            		return identity;
+        	}
 };
 
-#endif
+#endif //_IDENTITY_

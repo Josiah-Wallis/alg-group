@@ -1,20 +1,13 @@
-#ifndef _CLOSURE
-#define _CLOSURE
+#ifndef _CLOSURE_
+#define _CLOSURE_
 
 #include "../group_header/group.hpp"
 #include "verifier.hpp"
-#include <vector>
 
-class Commutative : Verifier{
+class Closure : public Verifier{
 	public:
-		Commutative();
-        vector<bool> check(int num1, int num2);
-        void pass(Group* g);
-        void setGroup(Group* group){g = group;};
-        virtual bool verify();
-
-	private:
-        Group* g;
+		Closure(): Verifier() {}
+        	virtual bool verify();
 };
 
-#endif
+#endif //_CLOSURE_
