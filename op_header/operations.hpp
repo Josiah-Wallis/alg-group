@@ -30,6 +30,7 @@ class Sub: public Base{
 	public:
 		Sub(Base* l, Base* r): l(l), r(r) {}
 		virtual double evaluate() { return l->evaluate() - r->evaluate(); }
+		virtual bool is_closed() { return true; }
 		virtual bool is_closed(Group* group) { 
 			for(auto i : group->associated_set){
 				Base* temp = new Op(this->evaluate() - i->evaluate());
