@@ -47,11 +47,9 @@ void Caretaker::check_save(Group* group, Group* current) {
 	else{
 		if(group->is_group()){
 			GoodGroup* x = current->bank->create_memento();
-			std::cout << "Memento set size: " <<  x->getSet()->size() << std::endl;
 			mementos->push_back(x);
 			if(!current->save){
 				current->save = mementos->at(0);
-				std::cout << "Memento set size check 2: " << current->save->getSet()->size() << std::endl;
 			}
 			else
 				current->bank->setLastSave(current);

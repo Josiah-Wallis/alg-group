@@ -39,7 +39,7 @@ class GroupBank{ //Originator
 };
 
 class GoodGroup{ //Memento
-	public:
+	private:
 		GoodGroup();
 		set<Op*>* getSet();
 		string getOp(); 
@@ -48,7 +48,7 @@ class GoodGroup{ //Memento
 		friend class Group; 
 		//limited to insert and remove
 
-	private:
+	
 		set<Op*>* s_set;
 		string s_op;
 };
