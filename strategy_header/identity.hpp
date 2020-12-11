@@ -10,9 +10,9 @@ class Identity : public Verifier{
             		identity = 0;
        		}
         	virtual bool verify();
-        	Op* getIdentity(){
-            		return identity;
-        	}
+        	Op* getIdentity();
+	private:
+		Op* identity;
 };
 
 #endif //_IDENTITY_
