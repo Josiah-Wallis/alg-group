@@ -72,11 +72,11 @@
  ## Installation/Usage
  > Instructions on installing and running your application
  > * **Installation**
- >   - 1) Clone the repository to a local directory and compile the given cpp files
- >   - 2) For any file that wants to instantiate a group, include group.hpp and op.hpp
- >   - 3) Instantiate a set pointer of Op pointers and create a string operation using the guidelines presented in the **Usage** section
- >   - 4) Pass the set and the operation to the Group constructor when instantiating said group
- >   - 5) Use Group::is_group() to return a bool, stating whether or not the set equipped with the given operation is an algebraic group
+ >   1) Clone the repository to a local directory and compile the given cpp files
+ >   2) For any file that wants to instantiate a group, include group.hpp and op.hpp
+ >   3) Instantiate a set pointer of Op pointers and create a string operation using the guidelines presented in the **Usage** section
+ >   4) Pass the set and the operation to the Group constructor when instantiating said group
+ >   5) Use Group::is_group() to return a bool, stating whether or not the set equipped with the given operation is an algebraic group
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
