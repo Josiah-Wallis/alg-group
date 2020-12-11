@@ -46,6 +46,21 @@ ADD_EXECUTABLE(strategy_tests
 	strategy_src/verifier.cpp
 )
 
+ADD_EXECUTABLE(input_output
+	group_src/group.cpp
+	factory_src/op_factory.cpp
+	op_src/custom.cpp
+	memento_src/memento.cpp
+	strategy_src/associative.cpp
+	strategy_src/closure.cpp
+	strategy_src/commutative.cpp
+	strategy_src/identity.cpp
+	strategy_src/inverse.cpp
+	strategy_src/verifier.cpp
+	main.cpp
+)
+	
+
 TARGET_LINK_LIBRARIES(group_tests gtest)
 TARGET_LINK_LIBRARIES(op_tests gtest)
 TARGET_LINK_LIBRARIES(factory_tests gtest)
