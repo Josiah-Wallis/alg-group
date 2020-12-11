@@ -85,25 +85,25 @@
  >     3. A modular operation in one of the two following ways: "modpx", "modmx". The first format is modular addition mod x while the second format is modular multiplication mod x.
  > * **Group Functionality**
  >   - There are three group constructors:
- >     1. Group() which sets its set to nullptr and its string to the empty string
- >     2. Group(string) which sets its set to nullptr and initializes its string component
- >     3. Group(set<Op*>\*, string) which sets its set and string to the passed in arguments
- >   - order() returns the number of elements in the Group
- >   - associated_set() returns the immutable version of the set associated with the Group
- >   - binary_operation() returns the associated binary operation of the Group
- >   - empty() returns true or false, depending on if the Group's set is nullptr (true), size 0 (true), or if it contains at least one element (false)
- >   - set_group(set<Op*>\*) sets the Group's group variable to the passed in set
- >   - set_binary_operation(string) sets the Group's binary_op variable
- >   - insert(Op*) adds a passed in Op* to the Group's group variable if the Op* is not currently in it already
- >   - remove(double) deletes the Op* that evaluates to the passed double value if it's in the group variable
- >   - mutable_set() returns the associated group variable of the Group, but as a set that can be changed without altering the inner workings of the original group
- >   - print() prints out all elements in the group variable in the order they've been inserted or passed in
- >   - is_group() returns true or false depending on whether or not the Group satisfies all conditions to be an algebraic group (see [this](https://en.wikipedia.org/wiki/Group_(mathematics)))
- >   - undo(int) sets the group variable to the set associated with the last instance the Group was verified to be an algebraic group (is_group() == true) when int == 1. When int == 0, this function will set the group variable to an instance of the group before the last change that was made to the group. For example, if we add an element to the group and we undo(0), the group will be rolled back to before the insertion of said element
- >   - back_track(int) rolls the group variable back to an instance int saves ago starting from int == 0
- >   - safe_save() checks to see if the current Group is an algebraic group, and if so it saves this instance, if not it outputs an error.
- >   - force_save() saves the current inner workings of this set as an instance we can go back to
- >   - num_saves() returns the number of saves available to roll back to
+ >     1. **Group()** which sets its set to nullptr and its string to the empty string
+ >     2. **Group(string)** which sets its set to nullptr and initializes its string component
+ >     3. **Group(set<Op*>\*, string)** which sets its set and string to the passed in arguments
+ >   - **order()** returns the number of elements in the Group
+ >   - **associated_set()** returns the immutable version of the set associated with the Group
+ >   - **binary_operation()** returns the associated binary operation of the Group
+ >   - **empty()** returns true or false, depending on if the Group's set is nullptr (true), size 0 (true), or if it contains at least one element (false)
+ >   - **set_group(set<Op*>\*)** sets the Group's group variable to the passed in set
+ >   - **set_binary_operation(string)** sets the Group's binary_op variable
+ >   - **insert(Op*)** adds a passed in Op* to the Group's group variable if the Op* is not currently in it already
+ >   - **remove(double)** deletes the Op* that evaluates to the passed double value if it's in the group variable
+ >   - **mutable_set()** returns the associated group variable of the Group, but as a set that can be changed without altering the inner workings of the original group
+ >   - **print()** prints out all elements in the group variable in the order they've been inserted or passed in
+ >   - **is_group()** returns true or false depending on whether or not the Group satisfies all conditions to be an algebraic group (see [this](https://en.wikipedia.org/wiki/Group_(mathematics)))
+ >   - **undo(int)** sets the group variable to the set associated with the last instance the Group was verified to be an algebraic group (is_group() == true) when int == 1. When int == 0, this function will set the group variable to an instance of the group before the last change that was made to the group. For example, if we add an element to the group and we undo(0), the group will be rolled back to before the insertion of said element
+ >   - **back_track(int)** rolls the group variable back to an instance int saves ago starting from int == 0
+ >   - **safe_save()** checks to see if the current Group is an algebraic group, and if so it saves this instance, if not it outputs an error.
+ >   - **force_save()** saves the current inner workings of this set as an instance we can go back to
+ >   - **num_saves()** returns the number of saves available to roll back to
  
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
