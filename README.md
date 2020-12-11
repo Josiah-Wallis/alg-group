@@ -69,14 +69,14 @@
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
  ## Screenshots
  > Screenshots of the input/output after running your application
- > Passing Input
  ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/master/input2.PNG)
- > Passing Output
+ > Passing Input
  ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/master/output2.PNG)
- > Failing Input
+ > Passing Output
  ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/master/input.PNG)
- > Failing Output
+ > Failing Input
  ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/master/output1.PNG)
+ > Failing Output
  ## Installation/Usage
  > Instructions on installing and running your application
  > * **How to use**
