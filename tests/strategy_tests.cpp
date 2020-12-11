@@ -71,8 +71,8 @@ TEST(AssociativeTest, T1){
 
 TEST(AssociativeTest, T2){
         set<Op*>* x = new set <Op*> {
-                new Op(1), new Op(3), new Op(5), new Op(7)};
-        string op = "modm8";
+                new Op(1), new Op(3), new Op(3)};
+        string op = "modp6";
         Group* g = new Group(x, op);
         Verifier* v = new Associative();
         v->setGroup(g);
