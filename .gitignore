@@ -9,3 +9,4 @@ factory_tests
 factory_src/.op_factory.cpp.swp
 group_tests
 memento_tests
+strategy_tests
