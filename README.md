@@ -71,12 +71,18 @@
  > Screenshots of the input/output after running your application
  ## Installation/Usage
  > Instructions on installing and running your application
- > * **Installation**
+ > * **How to use**
  >   1. Clone the repository to a local directory and compile the given cpp files
  >   2. For any file that wants to instantiate a group, include group.hpp and op.hpp
- >   3. Instantiate a set pointer of Op pointers and create a string operation using the guidelines presented in the **Usage** section
+ >   3. Instantiate a set pointer of Op pointers and create a string operation using the guidelines presented in the **Important Info** section
  >   4. Pass the set and the operation to the Group constructor when instantiating said group
  >   5. Use Group::is_group() to return a bool, stating whether or not the set equipped with the given operation is an algebraic group
+ > * **Important Info**
+ >   - The Group class accepts a set<Op*>* as its first argument and a string as its second argument
+ >   - The string can be in one of the following formats:
+ >     1. An operation that includes a "placement definition." For example, "a+b-2" will define an operation where if we pass in a left and right operand, it will calculate (Left Op) + (Right Op) - 2. The program assumes an "a" will be passed in first followed by a "b" somewhere else in the string. There is also no doubling up, such as "a+a" and there must be no spaces or extraneous characters within the string definition. On a final note, precedence is not accounted for
+ >     2. A single binary operation as follows: "+", "-", "\*", "/", "\*\*"
+ >     3. A modular operation in one of the two following ways: "modpx", "modmx". The first format is modular addition mod x while the second format is modular multiplication mod x.
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
