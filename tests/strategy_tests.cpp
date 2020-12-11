@@ -59,7 +59,7 @@ TEST(IdentityTest, T5){
         EXPECT_EQ(v->getIdentity(), nullptr);
 }
 
-TTEST(AssociativeTest, T1){
+TEST(AssociativeTest, T1){
         set<Op*>* x = new set <Op*> {
                 new Op(1), new Op(5), new Op(9)};
         string op = "+";
@@ -157,6 +157,56 @@ TEST(ClosureTest, T5){
         Verifier* v = new Closure();
         v->setGroup(g);
         EXPECT_EQ(v->verify(), false);
+}
+
+TEST(CommutativeTest, T1){
+        set<Op*>* x = new set <Op*> {
+                new Op(1), new Op(5), new Op(9)};
+        string op = "+";
+        Group* g = new Group(x, op);
+        Verifier* v = new Commutative();
+        v->setGroup(g);
+        EXPECT_EQ(v->verify(), true);
+}
+
+TEST(CommutativeTest, T2){
+        set<Op*>* x = new set <Op*> {
+                new Op(1), new Op(2), new Op(3)};
+        string op = "modp6";
+        Group* g = new Group(x, op);
+        Verifier* v = new Commutative();
+        v->setGroup(g);
+        EXPECT_EQ(v->verify(), true);
+}
+
+TEST(CommutativeTest, T3){
+        set<Op*>* x = new set <Op*> {
+                new Op(1), new Op(2), new Op(4)};
+        string op = "a/b+2";
+        Group* g = new Group(x, op);
+        Verifier* v = new Commutative();
+        v->setGroup(g);
+        EXPECT_EQ(v->verify(), false);
+}
+
+TEST(CommutativeTest, T4){
+        set<Op*>* x = new set <Op*> {
+                new Op(1), new Op(3), new Op(5), new Op(7)};
+        string op = "modm8";
+        Group* g = new Group(x, op);
+        Verifier* v = new Commutative();
+        v->setGroup(g);
+        EXPECT_EQ(v->verify(), true);
+}
+
+TEST(CommutativeTest, T5){
+        set<Op*>* x = new set <Op*> {
+                new Op(1), new Op(3)};
+        string op = "+";
+        Group* g = new Group(x, op);
+        Verifier* v = new Commutative();
+        v->setGroup(g);
+        EXPECT_EQ(v->verify(), true);
 }
 
 int main(int argc, char **argv){
