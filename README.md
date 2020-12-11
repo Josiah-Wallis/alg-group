@@ -115,4 +115,10 @@
  
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ > * Our project was tested and validated by passing in mathematically verified Groups to our functions to make sure they pass, and mathematically verified non-Groups that should make our tests fail. These verified groups include the following Finitely Generated Abelian Groups:
+ >   - Cyclic Modular Groups
+ >   - Klein 4-Groups
+ >   - Non-Cyclic Modular Groups
+ > * Additionally, we formed basic sets and operations that do not work well together, and don't form algebraic groups. This combination of objects can be verified mathematically. 
+ > * In general, we used googletests to verify our calculations and assumptions with respect to the passed in groups and operations.
  
