@@ -52,7 +52,7 @@
  ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/master/Strategy.jpg)
 
  > * Memento Method: For this project, we want to be able to save the state of our algebraic group when we know it has been verified to be, in fact, an algebraic group. This means it has passed all of the strategy verifications we've implemented. Every time a group has been verified, a version of itself will be saved as a memento. The GroupBank class will act as our originator, instantiating and being the user's proxy to access the memento. The GoodGroup class will be our primary memento, the class that holds one given state of a group at a time. The caretaker will be a set of functions or methods that allow us to interact with the memento itself without changing the inner workings or state of the object.
- ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/master/memento.PNG)
+ ![alt text](https://github.com/cs100/final-project-jwall014-asu013-anaba002/blob/master/updated_memento.PNG)
  > ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
  > * Before the meeting you should perform a sprint plan like you did in Phase II
