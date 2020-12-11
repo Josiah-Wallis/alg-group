@@ -87,14 +87,14 @@
  >   - There are three group constructors:
  >     1. **Group()** which sets its set to nullptr and its string to the empty string
  >     2. **Group(string)** which sets its set to nullptr and initializes its string component
- >     3. **Group(set<Op*>\*, string)** which sets its set and string to the passed in arguments
+ >     3. **Group(set<Op\*>\*, string)** which sets its set and string to the passed in arguments
  >   - **order()** returns the number of elements in the Group
  >   - **associated_set()** returns the immutable version of the set associated with the Group
  >   - **binary_operation()** returns the associated binary operation of the Group
  >   - **empty()** returns true or false, depending on if the Group's set is nullptr (true), size 0 (true), or if it contains at least one element (false)
- >   - **set_group(set<Op*>\*)** sets the Group's group variable to the passed in set
+ >   - **set_group(set<Op\*>\*)** sets the Group's group variable to the passed in set
  >   - **set_binary_operation(string)** sets the Group's binary_op variable
- >   - **insert(Op*)** adds a passed in Op* to the Group's group variable if the Op* is not currently in it already
+ >   - **insert(Op\*)** adds a passed in Op* to the Group's group variable if the Op* is not currently in it already
  >   - **remove(double)** deletes the Op* that evaluates to the passed double value if it's in the group variable
  >   - **mutable_set()** returns the associated group variable of the Group, but as a set that can be changed without altering the inner workings of the original group
  >   - **print()** prints out all elements in the group variable in the order they've been inserted or passed in
