@@ -11,3 +11,4 @@ group_tests
 memento_tests
 strategy_tests
 input_output
+verif_tests
