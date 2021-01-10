@@ -22,6 +22,13 @@ ADD_EXECUTABLE(group_tests
 	factory_src/op_factory.cpp
 	op_src/custom.cpp
 	memento_src/memento.cpp
+	strategy_src/associative.cpp
+	strategy_src/closure.cpp
+	strategy_src/commutative.cpp
+	strategy_src/identity.cpp
+	strategy_src/inverse.cpp
+	strategy_src/verifier.cpp
+	strategy_src/verification.cpp
 )
 
 ADD_EXECUTABLE(memento_tests
@@ -30,6 +37,13 @@ ADD_EXECUTABLE(memento_tests
 	factory_src/op_factory.cpp
 	op_src/custom.cpp
 	memento_src/memento.cpp
+	strategy_src/associative.cpp
+	strategy_src/closure.cpp
+	strategy_src/commutative.cpp
+	strategy_src/identity.cpp
+	strategy_src/inverse.cpp
+	strategy_src/verifier.cpp
+	strategy_src/verification.cpp	
 )
 
 ADD_EXECUTABLE(strategy_tests
@@ -44,6 +58,7 @@ ADD_EXECUTABLE(strategy_tests
 	strategy_src/identity.cpp
 	strategy_src/inverse.cpp
 	strategy_src/verifier.cpp
+	strategy_src/verification.cpp
 )
 
 ADD_EXECUTABLE(input_output
@@ -57,6 +72,7 @@ ADD_EXECUTABLE(input_output
 	strategy_src/identity.cpp
 	strategy_src/inverse.cpp
 	strategy_src/verifier.cpp
+	strategy_src/verification.cpp
 	main.cpp
 )
 
