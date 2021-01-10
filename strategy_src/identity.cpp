@@ -61,12 +61,12 @@ Op* Identity::getIdentity(){
 	}
 	
 	std::cout << "This group has no identity; Returning null pointer" << std::endl;
-return nullptr;
+	return nullptr;
 }
 
 bool Identity::verify(){
 	if(getIdentity() != nullptr){
 		return true;
 	}
-return false;
+	return false;
 }
