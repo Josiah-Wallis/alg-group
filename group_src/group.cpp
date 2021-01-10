@@ -1,4 +1,10 @@
 #include "../group_header/group.hpp"
+#include "../strategy_header/verification.hpp"
+#include "../strategy_header/associative.hpp"
+#include "../strategy_header/identity.hpp"
+#include "../strategy_header/inverse.hpp"
+#include "../strategy_header/closure.hpp"
+#include "../strategy_header/commutative.hpp"
 
 Group::Group(){
 	binary_op = "";
@@ -138,7 +144,21 @@ void Group::print() const{
 }
 
 bool Group::is_group() const{
-	return false; //stub
+	Verification* ver = new Verification();
+
+	ver->push_back(new Associative());
+	ver->push_back(new Closure());
+	ver->push_back(new Identity());
+	ver->push_back(new Inverse());
+
+	bool* stuff = ver->check();
+	
+	for(unsigned i = 0; i < ver->size(); i++){
+		if(!stuff[i])
+			return false;
+	}
+	
+	return true;	
 }
 
 void Group::undo(int x){
