@@ -16,6 +16,7 @@ class Verification{
 		void push_back(Verifier*);
 		bool* check();
 		void pass(Group*);
+		int size();
 
 	private:
 		vector<Verifier*>* verifier;

@@ -36,7 +36,8 @@ void Verification::push_back(Verifier* v){
 }
 
 bool* Verification::check(){
-	//Function assumes no itr size errors
+	if(!verifier)
+		return nullptr;
 	bool* x = new bool[verifier->size()];
 	
 	for(unsigned i = 0; i < verifier->size(); i++){
@@ -53,6 +54,13 @@ void Verification::pass(Group* g){
 	for(unsigned i = 0; i < verifier->size(); i++){
 		verifier->at(i)->setGroup(g);
 	}
+}
+
+int Verification::size(){
+	if(!verifier)
+		return 0;
+	else
+		return verifier->size();
 }
 
 
