@@ -14,11 +14,12 @@ class Verification{
 		Verification();
 
 		void push_back(Verifier*);
-		bool[] check(int, int);
+		bool* check();
 		void pass(Group*);
 
 	private:
-		vector<Verifier*> verifier;
+		vector<Verifier*>* verifier;
+};
 
 
 #endif

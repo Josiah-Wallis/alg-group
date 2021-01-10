@@ -22,28 +22,25 @@ void Verification::push_back(Verifier* v){
 		Inverse inv;
 		bool in = false;
 		for(unsigned i = 0; i < verifier->size(); i++){
-			if(typename(*v).name() == typename(assoc).name())
+			if(typeid(*v).name() == typeid(*(verifier->at(i))).name()){
+				in = true;
 				break;
-			else if(typename(*v).name() == typename(clos).name())
-				break;
-			else if(typename(*v).name() == typename(comm).name())
-				break;
-			else if(typename(*v).name() == typename(iden).name())
-				break;
-			else if(typename(*v).name() == typename(inv).name())
-				break;
-			else
-				verifier->push_back(v);
+			}
 		}
+
+		if(!in)
+			verifier->push_back(v);
+		else
+			return;
 	}
 }
 
-bool[] Verification::check(int itr1, int itr2){
+bool* Verification::check(){
 	//Function assumes no itr size errors
-	bool x[verifier->size()];
+	bool* x = new bool[verifier->size()];
 	
 	for(unsigned i = 0; i < verifier->size(); i++){
-		if(verifier->at(i)->verify()){
+		if(verifier->at(i)->verify())
 			x[i] = true;
 		else
 			x[i] = false;
