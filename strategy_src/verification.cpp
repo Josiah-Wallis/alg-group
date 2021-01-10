@@ -15,11 +15,6 @@ void Verification::push_back(Verifier* v){
 	if(verifier->size() == 0)
 		verifier->push_back(v);
 	else{
-		Associative assoc;
-		Closure clos;
-		Commutative comm;
-		Identity iden;
-		Inverse inv;
 		bool in = false;
 		for(unsigned i = 0; i < verifier->size(); i++){
 			if(typeid(*v).name() == typeid(*(verifier->at(i))).name()){

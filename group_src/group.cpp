@@ -103,12 +103,12 @@ void Group::insert(Op* ele){
 			return;
 		}
 	}
+	
 	if(!in)
 		group->insert(ele);
-
+	
 	if(this->is_group()){
-		//setLastSave used to be here
-		std::cout << group->size() << std::endl;
+		
 		all_saves->force_save(this, this);
 		bank->setLastSave(this);
 	}
@@ -151,6 +151,9 @@ bool Group::is_group() const{
 	ver->push_back(new Identity());
 	ver->push_back(new Inverse());
 
+	Group* g = new Group(new set<Op*>(*group), binary_op);
+
+	ver->pass(g);
 	bool* stuff = ver->check();
 	
 	for(unsigned i = 0; i < ver->size(); i++){

@@ -78,10 +78,20 @@ TEST(Insert_Remove_Test, T1){
 	EXPECT_EQ(group->order(), 2);
 }
 
+TEST(GroupTest, IsGroup){
+	set<Op*>* stuff = new set<Op*> { new Op(1), new Op(3), new Op(5), new Op(7)};
+	Group* group = new Group(stuff, "modm8");
 
+	EXPECT_EQ(group->is_group(), true);
+}
 
+TEST(GroupTest, NotGroup){
+	set<Op*>* stuff = new set<Op*> { new Op(1), new Op(2), new Op(3)};
+	Group* group = new Group(stuff, "+");
 
+	EXPECT_EQ(group->is_group(), false);	
 
+}
 
 
 
